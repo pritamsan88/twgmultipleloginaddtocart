@@ -3,12 +3,13 @@ package twglogin;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pom.pagefactory;
-
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class IneerPageAddtoCart {
     WebDriver driver=null;
@@ -52,5 +53,9 @@ public class IneerPageAddtoCart {
        // logincred.add(new String[] {"pritam.sanyal@yopmail.com","Sanyal88888@@"});
        // logincred.add(new String[] {"smith_doe@yopmail.com","Sanyal88888@@"});
     }
-
+    @AfterTest
+    public void quit() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.quit();
+    }
 }
