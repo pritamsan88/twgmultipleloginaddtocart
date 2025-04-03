@@ -10,7 +10,7 @@ import pom.pagefactory;
 
 import java.util.ArrayList;
 
-public class loginpage {
+public class LoginPage {
 
     WebDriver driver=null;
     pagefactory page=null;

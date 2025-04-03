@@ -7,11 +7,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pom.pagefactory;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ineerpageaddtocart {
+public class IneerPageAddtoCart {
     WebDriver driver=null;
     pagefactory page=null;
     @BeforeTest
