@@ -33,6 +33,8 @@ public class pagefactory {
     @FindBy(xpath="//a[(@href='javascript:void(0);')]")
     List<WebElement> listofcart;
 
+    @FindBy(xpath="//a[(@href='javascript:void(0);')]")
+    WebElement innerpagecart;
     @FindBy(xpath="//a[@href='https://thosewoofguys.com/shop/']")
     WebElement shoppage1;
 
@@ -46,6 +48,9 @@ public class pagefactory {
     List<WebElement> price;
     @FindBy(css = " button.wc-block-cart-item__remove-link")
     List<WebElement> cartitemdelete;
+
+    @FindBy(css="a.btn_card.dtls_btn")
+    List<WebElement> detailsinlist;
 
     @FindBy (id="cart-count")
     WebElement cartcount1;
@@ -160,7 +165,7 @@ public class pagefactory {
 
       }
 
-    public void productlistaddtocart() throws InterruptedException {
+      public void productlistaddtocart() throws InterruptedException {
         /*for(WebElement cart:listofcart)
         {
             js=(JavascriptExecutor) driver;
@@ -176,6 +181,30 @@ public class pagefactory {
             js.executeScript("arguments[0].scrollIntoView();", item);
             Thread.sleep(2000);
             js.executeScript("arguments[0].click();", item);
+        }
+    }
+         public void productineeraddtocart() throws InterruptedException {
+        /*for(WebElement cart:listofcart)
+        {
+            js=(JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView();", cart);
+            Thread.sleep(2000);
+            js.executeScript("arguments[0].click();", cart);
+        }*/
+
+        for (int i=5;i<=8;i++)
+        {
+            WebElement item=detailsinlist.get(i);
+            Thread.sleep(2000);
+            js.executeScript("arguments[0].scrollIntoView();", item);
+            Thread.sleep(2000);
+            js.executeScript("arguments[0].click();", item);
+            Thread.sleep(2000);
+
+            js.executeScript("arguments[0].click();", innerpagecart);
+            Thread.sleep(2000);
+            driver.navigate().back();
+
         }
     }
 }

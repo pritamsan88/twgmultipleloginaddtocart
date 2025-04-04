@@ -40,7 +40,7 @@ public class IneerPageAddtoCart {
                     page.loginbutton();
                     page.verifydashboard();
                     page.shop();
-                    page.productlistaddtocart();
+                    page.productineeraddtocart();
                     page.cartdetails();
                     page.validatedcart();
                     page.deleteitem();
