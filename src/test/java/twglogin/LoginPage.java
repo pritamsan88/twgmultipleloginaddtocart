@@ -44,9 +44,11 @@ public class LoginPage {
             page.loginbutton();
             page.verifydashboard();
             page.shop();
-            page.productlistaddtocart();
+            //page.productlistaddtocart();
+            page.randomclickaddtocart();
             page.cartdetails();
             page.validatedcart();
+            page.randomclickaddtocart();
             page.deleteitem();
             page.myaccount();
 

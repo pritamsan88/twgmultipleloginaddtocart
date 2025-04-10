@@ -169,6 +169,19 @@ public class pagefactory {
 
 
       }
+      public void randomclickaddtocart() throws InterruptedException {
+          if(!listofcart.isEmpty())
+          {
+              Random rand=new Random();
+              int randomindex= rand.nextInt(listofcart.size());
+              js.executeScript("arguments[0].scrollIntoView();", listofcart.get(randomindex));
+              Thread.sleep(2000);
+              js.executeScript("arguments[0].click();", listofcart.get(randomindex));
+          }
+
+
+
+      }
 
       public void productlistaddtocart() throws InterruptedException {
         /*for(WebElement cart:listofcart)
