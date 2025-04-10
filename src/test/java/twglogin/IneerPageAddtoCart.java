@@ -30,7 +30,7 @@ public class IneerPageAddtoCart {
         page=new pagefactory(driver);
         HashMap<String,String> map=new HashMap<>();
         map.put("pritam.sanyal@yopmail.com","Sanyal88888@@");
-        map.put("smith_doe@yopmail.com","Testing$$$123");
+        //map.put("smith_doe@yopmail.com","Testing$$$123");
         for(Map.Entry<String,String>logincred:map.entrySet())
                 {
                     String usernamefield=logincred.getKey();

@@ -38,6 +38,7 @@ public class LoginPage {
         {
             String email= credentials[0];
             String pass= credentials[1];
+
             page.username(email);
             page.password(pass);
             page.loginbutton();
@@ -48,6 +49,7 @@ public class LoginPage {
             page.validatedcart();
             page.deleteitem();
             page.myaccount();
+
             page.logout();
         }
 

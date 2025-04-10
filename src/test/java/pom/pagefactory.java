@@ -5,8 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Random;
 
 import static java.lang.Integer.*;
 
@@ -54,6 +56,9 @@ public class pagefactory {
 
     @FindBy (id="cart-count")
     WebElement cartcount1;
+
+    @FindBy(css=" div.product_detl_qty > select")
+    WebElement size;
 
    public pagefactory(WebDriver driver)
     {
@@ -129,7 +134,7 @@ public class pagefactory {
                 String details = cartindetails.get(i).getText();
                 String pricedetails1 = price.get(i).getText();
 
-                System.out.println("Product: " + details + " | Price: " + pricedetails1);
+                System.out.println("Product:- " + details + " | Price:- " + pricedetails1);
             }
 
         } else {
@@ -154,12 +159,12 @@ public class pagefactory {
           int  carticon=Integer.parseInt(cartdigit);
           if(carticon>0)
           {
-              System.out.println(" product added in thr cart :");
+              System.out.println(" : product added in thr cart :");
 
           }
           else
           {
-              System.out.println(" not added in the cart :");
+              System.out.println(" : not added in the cart :");
           }
 
 
@@ -192,7 +197,7 @@ public class pagefactory {
             js.executeScript("arguments[0].click();", cart);
         }*/
 
-        for (int i=5;i<=8;i++)
+        for (int i=28;i<detailsinlist.size();i++)
         {
             WebElement item=detailsinlist.get(i);
             Thread.sleep(2000);
@@ -200,6 +205,19 @@ public class pagefactory {
             Thread.sleep(2000);
             js.executeScript("arguments[0].click();", item);
             Thread.sleep(2000);
+
+            Select select= new Select(size);
+            List<WebElement> listofqty=select.getOptions();
+            int sizecount=listofqty.size();
+            if(sizecount>1)
+            {
+                int randomsizeindex= new Random().nextInt(listofqty.size());
+                select.selectByIndex(randomsizeindex);
+            }else {
+                // No options in the dropdown
+                System.out.println("Dropdown has no options to select.");
+            }
+            System.out.println("Total qty of the list :" + sizecount);
 
             js.executeScript("arguments[0].click();", innerpagecart);
             Thread.sleep(2000);
