@@ -9,35 +9,39 @@ import org.testng.annotations.Test;
 import pom.pagefactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LoginPage {
 
-    WebDriver driver=null;
-    pagefactory page=null;
+    WebDriver driver = null;
+    pagefactory page = null;
 
     @BeforeTest
-    public void startbrowser()
-    {
+    public void startbrowser() {
         //driver=WebDriverManager.chromiumdriver().create();
         WebDriverManager.chromedriver().setup();
-        driver =new ChromeDriver();
+        driver = new ChromeDriver();
 
 
     }
+
     @Test
     public void loginpage() throws InterruptedException {
         driver.get("https://thosewoofguys.com/my-account/");
         driver.manage().window().maximize();
-        page=new pagefactory(driver);
+        page = new pagefactory(driver);
 
-        ArrayList<String[]> logindetails=new ArrayList<>();
-        logindetails.add(new String[]{"pritam.sanyal@yopmail.com","Sanyal88888@@"});
-        logindetails.add(new String[]{"smith_doe@yopmail.com","Testing$$$123"});
+        ArrayList<String[]> logindetails = new ArrayList<>();
+        logindetails.add(new String[]{"pritam.sanyal@yopmail.com", "Sanyal88888@@"});
+        logindetails.add(new String[]{"smith_doe@yopmail.com", "Testing$$$123"});
+        StringBuilder build = new StringBuilder();
+        build.append("Input values:\n");
 
-        for (String [] credentials:logindetails)
-        {
-            String email= credentials[0];
-            String pass= credentials[1];
+        for (String[] credentials : logindetails) {
+            build.append("Email: ").append(credentials[0]);
+            build.append("Password: ").append(credentials[1]);
+            String email = credentials[0];
+            String pass = credentials[1];
 
             page.username(email);
             page.password(pass);
@@ -54,6 +58,7 @@ public class LoginPage {
 
             page.logout();
         }
+        System.out.println(build.toString());
 
     }
 
@@ -62,7 +67,6 @@ public class LoginPage {
         Thread.sleep(2000);
         driver.quit();
     }
-
 
 
 }
